@@ -72,58 +72,6 @@ public class PostServiceMockitoTest {
 	}
 	
 	@Test
-	void updatePostTest() {
-
-		// Creating PostInputDto object
-		PostInputDto updatedPost = new PostInputDto(); 
-		
-		// Setting the values
-		updatedPost.setPostId(59);
-		updatedPost.setTitle("Updated Post");
-		updatedPost.setContent(PostType.LINK);
-		updatedPost.setCreatedDateTime(LocalDateTime.now());
-		updatedPost.setFlair("updatedpost");
-		updatedPost.setNotSafeForWork(false);
-		updatedPost.setOriginalContent(true);
-		updatedPost.setVotes(234578);
-		updatedPost.setVoteUp(true);
-		updatedPost.setSpoiler(true);
-		updatedPost.setFlag(false);
-		
-		// Creating post object
-		Post post = new Post();
-		
-		// Setting the post values
-		post.setPostId(updatedPost.getPostId());
-		post.setTitle(updatedPost.getTitle());
-		post.setContent(updatedPost.getContent());
-		post.setCreatedDateTime(updatedPost.getCreatedDateTime());
-		post.setFlair(updatedPost.getFlair());
-		post.setNotSafeForWork(updatedPost.isNotSafeForWork());
-		post.setOriginalContent(updatedPost.isOriginalContent());
-		post.setVotes(updatedPost.getVotes());
-		post.setVoteUp(updatedPost.isVoteUp());
-		post.setSpoiler(updatedPost.isSpoiler());
-
-		// Sending the post object when the following functions are called instead of using database
-		Mockito.when(postRepo.findById(59)).thenReturn(Optional.of(post));
-		Mockito.when(postRepo.save(post)).thenReturn(post);
-		
-		Post updatedPostOutput = postServ.updatePost(updatedPost);
-		
-		// checking if the updated post values are equal to the post or not
-		assertEquals(59, updatedPostOutput.getPostId());
-		assertEquals("Updated Post", updatedPostOutput.getTitle());
-		assertEquals(PostType.LINK, updatedPostOutput.getContent());
-		assertEquals("#updatedpost", updatedPostOutput.getFlair());
-		assertEquals(234578, updatedPostOutput.getVotes());
-		assertEquals(false, updatedPostOutput.isNotSafeForWork());
-		assertEquals(true, updatedPostOutput.isOriginalContent());
-		assertEquals(true, updatedPostOutput.isSpoiler());
-		assertEquals(true, updatedPostOutput.isVoteUp());
-	}
-	
-	@Test
 	void getPostById() {
 		
 		// Creating Post Object

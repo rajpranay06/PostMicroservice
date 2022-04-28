@@ -18,7 +18,7 @@ import javax.validation.constraints.Size;
 import lombok.Data;
 
 @Entity       
-@Data                        // Used to create all getter setter constructors and tostring methods                           // Used to create all getter setter constructors and tostring methods
+@Data                        // Used to create all getter setter constructors and to string methods                           // Used to create all getter setter constructors and tostring methods
 public class Post {
 	
 	@Id                  // Making postId as primary key
