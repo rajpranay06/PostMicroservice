@@ -3,6 +3,7 @@ package com.example.demo.service;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 import java.time.LocalDateTime;
+import java.util.ArrayList;
 import java.util.List;
 
 import org.junit.jupiter.api.Disabled;
@@ -39,6 +40,14 @@ public class PostServiceTest {
 		newPost.setVoteUp(true);
 		newPost.setSpoiler(true);
 		newPost.setFlag(false);
+		newPost.setBloggerId(101);
+		newPost.setCommunityId(102);
+		
+		List<Integer> awardIds = new ArrayList<>();
+		awardIds.add(103);
+		awardIds.add(104);
+		
+		newPost.setAwardIds(awardIds);
 		
 		// Adding the post
 		Post post = postServ.addPost(newPost);
@@ -72,6 +81,14 @@ public class PostServiceTest {
 		updatedPost.setVoteUp(true);
 		updatedPost.setSpoiler(true);
 		updatedPost.setFlag(false);
+		updatedPost.setBloggerId(101);
+		updatedPost.setCommunityId(102);
+		
+		List<Integer> awardIds = new ArrayList<>();
+		awardIds.add(103);
+		awardIds.add(104);
+		
+		updatedPost.setAwardIds(awardIds);
 		
 		// Updating the post
 		Post post = postServ.updatePost(updatedPost);
